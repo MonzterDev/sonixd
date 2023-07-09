@@ -60,7 +60,7 @@ const useDiscordRpc = ({ playersRef }: any) => {
         const activity: Presence = {
           details: playQueue.current?.title.padEnd(2, ' ') || 'Not playing',
           state: artists && `By ${artists}`,
-          largeImageKey: undefined,
+          largeImageKey: playQueue.current?.title.replaceAll(' ', '_').toLowerCase(),
           largeImageText: playQueue.current?.album || 'Unknown album',
           smallImageKey: undefined,
           smallImageText: player.status,
@@ -83,6 +83,8 @@ const useDiscordRpc = ({ playersRef }: any) => {
         if (!activity.largeImageKey) {
           activity.largeImageKey = 'icon';
         }
+
+        console.log(activity);
 
         discordRpc.setActivity(activity);
       };

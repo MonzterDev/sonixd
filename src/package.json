@@ -17,10 +17,6 @@
     "electron": "22.3.1"
   },
   "dependencies": {
-    "@nodert-win10-au/windows.foundation": "^0.4.4",
-    "@nodert-win10-au/windows.media": "^0.4.4",
-    "@nodert-win10-au/windows.media.playback": "^0.4.4",
-    "@nodert-win10-au/windows.storage.streams": "^0.4.4",
     "mpris-service": "^2.1.2"
   }
 }
