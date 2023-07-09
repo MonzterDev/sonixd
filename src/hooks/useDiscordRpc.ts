@@ -60,7 +60,9 @@ const useDiscordRpc = ({ playersRef }: any) => {
         const activity: Presence = {
           details: playQueue.current?.title.padEnd(2, ' ') || 'Not playing',
           state: artists && `By ${artists}`,
-          largeImageKey: playQueue.current?.title.replaceAll(' ', '_').toLowerCase(),
+          largeImageKey: playQueue.current?.title
+            ?.replace(/[&.()[\],':;!?\s]+|__/g, '_')
+            .toLowerCase(),
           largeImageText: playQueue.current?.album || 'Unknown album',
           smallImageKey: undefined,
           smallImageText: player.status,
